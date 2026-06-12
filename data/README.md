@@ -54,6 +54,7 @@ If you don't have curl, replace `curl -O` with `wget` for each command.
 - igsr_populations.tsv
 
 All four files must be present before running scripts/01_parse_vcf.py.
+
 --- 
 
 ## Note on the tabix index 
@@ -66,6 +67,8 @@ tabix -p vcf ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.
 ```
 --- 
 
-## Data citation An integrated map of genetic variation from 1,092 human genomes. Nature 491:56-65 (2012). DOI: 10.1038/nature11632 
+## Data citation 
+An integrated map of genetic variation from 1,092 human genomes. Nature 491:56-65 (2012). 
+DOI: 10.1038/nature11632 
 https://www.nature.com/articles/nature11632
 
