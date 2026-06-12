@@ -22,9 +22,11 @@ curl -O "https://42basepairs.com/download/s3/1000genomes/release/20110521/ALL.ch
 ```
 
 Backup source (official EBI FTP, slower):
+```bash
  wget "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz"
-wget "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz.tbi"
 
+wget "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz.tbi"
+```
 
 ### 2. Sample panel file (maps sample ID to population code)
 ```bash
@@ -59,7 +61,4 @@ tabix -p vcf ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.
 
 ## Data citation An integrated map of genetic variation from 1,092 human genomes. Nature 491:56-65 (2012). DOI: 10.1038/nature11632 
 https://www.nature.com/articles/nature11632
-
-
- EOF
 
