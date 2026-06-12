@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "layer": [{"mark": {"type": "bar", "cornerRadiusTopLeft": 4, "cornerRadiusTopRight": 4}, "encoding": {"color": {"field": "Population", "legend": null, "scale": {"domain": ["European", "African"], "range": ["#1A3A5C", "#D4600A"]}, "type": "nominal"}, "tooltip": [{"field": "Population", "title": "Population", "type": "nominal"}, {"field": "Diversity", "format": ".4f", "title": "Diversity", "type": "quantitative"}, {"field": "Description", "title": "Samples", "type": "nominal"}], "x": {"axis": {"labelFontSize": 13, "titleFontSize": 14}, "field": "Population", "title": null, "type": "nominal"}, "y": {"axis": {"labelFontSize": 11, "titleFontSize": 13}, "field": "Diversity", "scale": {"zero": true}, "title": "Mean allele-count std dev", "type": "quantitative"}}, "title": {"text": "Within-Group Genetic Diversity", "fontSize": 16, "subtitle": "Higher value = more genetic variation within the population", "subtitleColor": "gray", "subtitleFontSize": 12}}, {"mark": {"type": "text", "align": "center", "baseline": "top", "dy": 8, "fontSize": 12, "fontWeight": "bold"}, "encoding": {"color": {"value": "white"}, "text": {"field": "Diversity", "format": ".4f", "type": "quantitative"}, "tooltip": [{"field": "Population", "title": "Population", "type": "nominal"}, {"field": "Diversity", "format": ".4f", "title": "Diversity", "type": "quantitative"}, {"field": "Description", "title": "Samples", "type": "nominal"}], "x": {"axis": {"labelFontSize": 13, "titleFontSize": 14}, "field": "Population", "title": null, "type": "nominal"}, "y": {"axis": {"labelFontSize": 11, "titleFontSize": 13}, "field": "Diversity", "scale": {"zero": true}, "title": "Mean allele-count std dev", "type": "quantitative"}}, "title": {"text": "Within-Group Genetic Diversity", "fontSize": 16, "subtitle": "Higher value = more genetic variation within the population", "subtitleColor": "gray", "subtitleFontSize": 12}}], "data": {"name": "data-b860a5a6edd1bed8320af4007ca7f234"}, "height": 400, "width": 350, "$schema": "https://vega.github.io/schema/vega-lite/v6.4.1.json", "datasets": {"data-b860a5a6edd1bed8320af4007ca7f234": [{"Population": "European", "Diversity": 0.1367351381299827, "Description": "n\u2248379 samples"}, {"Population": "African", "Diversity": 0.19546329026733472, "Description": "n\u2248246 samples"}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
