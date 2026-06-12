@@ -23,7 +23,7 @@ curl -O "https://42basepairs.com/download/s3/1000genomes/release/20110521/ALL.ch
 
 Backup source (official EBI FTP, slower):
 ```bash
- wget "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz"
+wget "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz"
 
 wget "https://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20110521/ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz.tbi"
 ```
@@ -43,20 +43,27 @@ If you don't have curl, replace `curl -O` with `wget` for each command.
 --- 
 
 ## Directory structure after download
-data/raw/ 
-ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz
-ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz.tbi
-phase1_integrated_calls.20101123.ALL.panel
- igsr_populations.tsv
+- data/raw/ 
+
+- ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz
+
+- ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz.tbi
+
+- phase1_integrated_calls.20101123.ALL.panel
+
+- igsr_populations.tsv
 
 All four files must be present before running scripts/01_parse_vcf.py.
 --- 
 
 ## Note on the tabix index 
-The .tbi file must have exactly the same base name as the .vcf.gz file and must be in the same directory. 
+The .tbi file must have exactly the same base name as the .vcf.gz file 
+and must be in the same directory. 
 If pysam reports a missing index, you can regenerate it with: 
-tabix -p vcf ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz 
 
+```bash
+tabix -p vcf ALL.chr22.phase1_release_v3.20101123.snps_indels_svs.genotypes.vcf.gz 
+```
 --- 
 
 ## Data citation An integrated map of genetic variation from 1,092 human genomes. Nature 491:56-65 (2012). DOI: 10.1038/nature11632 
