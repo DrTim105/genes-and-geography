@@ -1,0 +1,16 @@
+{
+  "n_samples": 1092,
+  "n_variants": 4943,
+  "n_populations": 14,
+  "n_superpopulations": 4,
+  "eur_diversity": 0.1367351381299827,
+  "afr_diversity": 0.19546329026733472,
+  "diversity_ratio": 1.4295030007687128,
+  "mean_fst": 0.033350809732445676,
+  "max_fst": 0.4751254383076286,
+  "n_fst_above_0_1": 392,
+  "n_fst_above_0_3": 20,
+  "pc1_full_var": 8.253525164415938,
+  "pc2_full_var": 5.412034133355185,
+  "methods_correlation": 0.344
+}
