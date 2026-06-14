@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-complete-success.svg)]()
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://genes-and-geography.streamlit.app)
 
 ---
 
@@ -181,6 +182,9 @@ conda activate geogenes
 
 python scripts/01_parse_vcf.py        # builds data/processed/matrix.csv
 jupyter notebook notebooks/02_visualise.ipynb
+
+# Or run the interactive explorer
+streamlit run streamlit_app/app.py
 ```
 
 ---
@@ -200,7 +204,13 @@ genes-and-geography/
 ├── notebooks/
 │   └── 02_visualise.ipynb             # All analysis and figures
 └── results/
-    └── figures/                       # PCA, t-SNE, AIMs figures
+|   └── figures/                       # PCA, t-SNE, AIMs figures
+├── streamlit_app/
+│   ├── app.py                         # Interactive Streamlit explorer
+│   ├── styles.py                      # Custom dark theme CSS
+│   ├── components.py                  # Reusable HTML components
+│   ├── requirements.txt               # Streamlit Cloud dependencies
+│   └── data/                          # Precomputed PCA coordinates and stats
 ```
  
 ---
