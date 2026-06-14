@@ -28,26 +28,18 @@ def hero(eyebrow, title_text, accent_word, subtitle, meta):
     </div>
     """
     st.markdown(html, unsafe_allow_html=True)
- 
- 
+
 def kpi_row(items):
-    """Render a row of KPI cards.
- 
-    Parameters
-    ----------
-    items : list of dicts with keys 'value', 'label', 'sub'
-    """
-    cards = "".join([
-        f"""
+    """Render a row of KPI cards."""
+    cols = st.columns(len(items))
+    for col, item in zip(cols, items):
+        col.markdown(f"""
         <div class="kpi-card">
             <div class="kpi-value">{item['value']}</div>
             <div class="kpi-label">{item['label']}</div>
             <div class="kpi-sub">{item['sub']}</div>
         </div>
-        """
-        for item in items
-    ])
-    st.markdown(f'<div class="kpi-grid">{cards}</div>', unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
  
  
 def section_header(eyebrow, title, lead):
