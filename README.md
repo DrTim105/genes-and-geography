@@ -5,8 +5,7 @@
 [![Python](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-complete-success.svg)]()
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://genes-and-geography.streamlit.app)
-
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://genes-and-geography.streamlit.app)
 ---
 
 ## TL;DR
