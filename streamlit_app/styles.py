@@ -1,12 +1,12 @@
-# streamlit_app/styles.py 
+# streamlit_app/styles.py
 import streamlit as st
- 
+
 CSS = """
 <style>
     /* ----- Google Fonts ----- */
     @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
- 
-    /* ----- Design tokens (variables) ----- */
+
+    /* ----- Design tokens ----- */
     :root {
         --bg-primary: #0A1929;
         --bg-secondary: #0F1F30;
@@ -23,33 +23,24 @@ CSS = """
         --accent-blue: #4A90E2;
         --accent-teal: #2DD4BF;
     }
- 
-    /* ----- Reset Streamlit defaults ----- */
-    .stApp {
-        background: var(--bg-primary);
-        color: var(--text-primary);
-    }
- 
-    /* Hide the default Streamlit header/menu */
+
+    .stApp { background: var(--bg-primary); color: var(--text-primary); }
     [data-testid="stHeader"] { background: transparent; }
     [data-testid="stToolbar"] { display: none; }
     footer { display: none; }
     #MainMenu { display: none; }
- 
-    /* Body & font baseline */
+
     html, body, [class*="css"] {
         font-family: 'Inter', -apple-system, sans-serif;
         color: var(--text-primary);
     }
- 
-    /* Headings use Space Grotesk */
     h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Grotesk', sans-serif !important;
         color: var(--text-primary) !important;
         letter-spacing: -0.02em;
     }
- 
-    /* ----- Hero section ----- */
+
+    /* ----- Hero ----- */
     .hero {
         padding: 4rem 0 3rem 0;
         text-align: center;
@@ -96,14 +87,8 @@ CSS = """
         letter-spacing: 0.15em;
         margin-top: 2rem;
     }
- 
+
     /* ----- KPI cards ----- */
-    .kpi-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        margin: 2rem 0 3rem 0;
-    }
     .kpi-card {
         background: var(--bg-card);
         border: 1px solid var(--border-subtle);
@@ -140,8 +125,8 @@ CSS = """
         margin-top: 0.5rem;
         font-weight: 300;
     }
- 
-    /* ----- Section eyebrow & headers ----- */
+
+    /* ----- Section headers ----- */
     .section-eyebrow {
         font-family: 'JetBrains Mono', monospace;
         font-size: 0.75rem;
@@ -165,8 +150,8 @@ CSS = """
         margin-bottom: 2rem;
         max-width: 720px;
     }
- 
-    /* ----- Callout blocks ----- */
+
+    /* ----- Callout ----- */
     .callout {
         background: var(--accent-orange-soft);
         border-left: 3px solid var(--accent-orange);
@@ -188,8 +173,8 @@ CSS = """
         line-height: 1.6;
         font-size: 1rem;
     }
- 
-    /* ----- Restyle Streamlit's built-in tabs ----- */
+
+    /* ----- Tabs ----- */
     .stTabs [data-baseweb="tab-list"] {
         gap: 2rem;
         border-bottom: 1px solid var(--border-subtle);
@@ -210,20 +195,16 @@ CSS = """
         color: var(--accent-orange) !important;
         border-bottom: 2px solid var(--accent-orange) !important;
     }
- 
-    /* ----- Restyle sliders ----- */
+
+    /* ----- Widgets ----- */
     .stSlider [data-baseweb="slider"] > div > div > div > div {
         background: var(--accent-orange) !important;
     }
- 
-    /* ----- Restyle the multiselect pills ----- */
     .stMultiSelect [data-baseweb="tag"] {
         background: var(--accent-orange-soft) !important;
         color: var(--accent-orange) !important;
         border: 1px solid var(--accent-orange) !important;
     }
- 
-    /* ----- Code blocks ----- */
     code, .stCode {
         font-family: 'JetBrains Mono', monospace !important;
         background: var(--bg-secondary) !important;
@@ -232,7 +213,7 @@ CSS = """
         border-radius: 4px;
         font-size: 0.85rem;
     }
- 
+
     /* ----- Footer ----- */
     .app-footer {
         margin-top: 5rem;
@@ -242,13 +223,46 @@ CSS = """
         color: var(--text-muted);
         font-size: 0.85rem;
     }
-    .app-footer a {
-        color: var(--accent-orange);
-        text-decoration: none;
+    .app-footer a { color: var(--accent-orange); text-decoration: none; }
+
+    /* =====================================================
+       MOBILE RESPONSIVE — added on top of original design
+       ===================================================== */
+    @media (max-width: 768px) {
+        /* Hero — shrink title so it fits on one screen */
+        .hero { padding: 2rem 0 1.5rem 0; margin-bottom: 1.5rem; }
+        .hero-title { font-size: 2.6rem; letter-spacing: -0.025em; }
+        .hero-subtitle { font-size: 1rem !important; }
+        .hero-meta { font-size: 0.6rem !important; letter-spacing: 0.08em !important; }
+
+        /* KPI cards — reduce padding, smaller number */
+        .kpi-card { padding: 1.25rem 1rem; border-radius: 8px; }
+        .kpi-value { font-size: 2rem; }
+        .kpi-label { font-size: 0.6rem; }
+        .kpi-sub { font-size: 0.8rem; }
+
+        /* Section headers */
+        .section-title { font-size: 1.75rem; }
+        .section-lead { font-size: 1rem; }
+
+        /* Tabs — tighter spacing so they don't overflow */
+        .stTabs [data-baseweb="tab-list"] { gap: 0.6rem !important; flex-wrap: wrap; }
+        .stTabs [data-baseweb="tab"] { font-size: 0.78rem !important; padding: 0.4rem 0 !important; }
+
+        /* Callout — less padding */
+        .callout { padding: 1rem 1.25rem; }
+    }
+
+    @media (max-width: 480px) {
+        .hero-title { font-size: 1.9rem; }
+        .hero-eyebrow { font-size: 0.7rem; letter-spacing: 0.12em; margin-bottom: 1rem; }
+        /* Hide the meta row on very small screens — too cramped */
+        .hero-meta { display: none; }
+        .section-title { font-size: 1.5rem; }
+        .kpi-value { font-size: 1.75rem; }
     }
 </style>
 """
- 
+
 def inject_css():
-    """Call once at the top of app.py to apply the design system."""
     st.markdown(CSS, unsafe_allow_html=True)
