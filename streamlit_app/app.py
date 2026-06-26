@@ -205,7 +205,7 @@ with tab_africa:
     cols = st.columns(3)
     populations = [
         ("YRI", "Yoruba in Ibadan, Nigeria",
-         "West African; the project author's ancestral population."),
+         "West African."),
         ("LWK", "Luhya in Webuye, Kenya",
          "East African; separates from YRI on PC2 — real geographic distance."),
         ("ASW", "African-American (SW USA)",
